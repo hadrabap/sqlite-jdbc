@@ -33,7 +33,11 @@ public abstract class JDBC3PreparedStatement extends CorePreparedStatement {
 
     /** @see java.sql.PreparedStatement#clearParameters() */
     public void clearParameters() throws SQLException {
-        checkOpen();
+        try {
+            checkOpen();
+        } catch (SQLException ex) {
+            return;
+        }
         pointer.safeRunConsume(DB::clear_bindings);
         if (batch != null) for (int i = batchPos; i < batchPos + paramCount; i++) batch[i] = null;
     }
