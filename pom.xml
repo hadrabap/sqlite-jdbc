@@ -301,6 +301,7 @@
                         <configuration>
                             <additionalOptions>-Xdoclint:none</additionalOptions>
                             <additionalJOption>-Xdoclint:none</additionalJOption>
+                            <release>8</release>
                         </configuration>
                         <executions>
                             <execution>
